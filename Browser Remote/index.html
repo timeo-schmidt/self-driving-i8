@@ -1,0 +1,110 @@
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: Arial;
+        }
+        
+        .move-btn {
+            background-color: lightcoral;
+            color: white;
+            display: inline-block;
+            margin: 10px !important;
+        }
+        
+        .move-btn:hover {
+            cursor: pointer;
+        }
+        
+        .size {
+            font-size: 15vw;
+        }
+        
+        .placeholder {
+            width: 15vw;
+            height: 1px;
+            background: white;
+        }
+        
+        .control-box {
+            text-align: center;
+        }
+        
+        p {
+            width: 100vw;
+            font-size: 5em;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="control-box">
+
+        <div id="forward" class="move-btn forward"><i class="material-icons size">keyboard_arrow_up</i></div><br>
+        <div id="left" class="move-btn left"><i class="material-icons size">keyboard_arrow_left</i></div>
+
+        <div class="move-btn placeholder"></div>
+
+        <div id="right" class="move-btn right"><i class="material-icons size">keyboard_arrow_right</i></div><br>
+        <div id="backward" class="move-btn backward"><i class="material-icons size">keyboard_arrow_down</i></div>
+
+
+    </div>
+
+    <script>
+//        $(document).keypress(function(event) {
+//
+//            switch (event.which) {
+//                case 119:
+//                    console.log("Forward");
+//                    break;
+//                case 100:
+//                    console.log("Right");
+//                    break;
+//                case 97:
+//                    console.log("Left");
+//                    break;
+//                case 125:
+//                    console.log("Backward");
+//                    break;
+//                default:
+//                    code block
+//            }
+//        });
+
+        $("#forward").click(function() {
+            console.log("Forward Pressed");
+            $.get("http://192.168.1.106/forward?duration=200", function(data, status) {
+                console.log(data);
+            });
+        });
+
+        $("#left").click(function() {
+            console.log("Left Pressed");
+            $.get("http://192.168.1.106/left?duration=200", function(data, status) {
+                console.log(data);
+            });
+        });
+
+        $("#right").click(function() {
+            console.log("Right Pressed");
+            $.get("http://192.168.1.106/right?duration=200", function(data, status) {
+                console.log(data);
+            });
+        });
+
+        $("#backward").click(function() {
+            console.log("Backward Pressed");
+            $.get("http://192.168.1.106/backward?duration=200", function(data, status) {
+                console.log(data);
+            });
+        });
+
+    </script>
+</body>
